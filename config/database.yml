@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: rice8080
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: gym_utility_development
+
+test:
+  <<: *default
+  database: gym_utility_test
+
+production:
+  <<: *default
+  database: gym_utility_production
+  username: gym_utility
+  password: <%= ENV['GYM_UTILITY_DATABASE_PASSWORD'] %>
